@@ -4,7 +4,7 @@ var load = require('express-load');
 
 module.exports = function() {
     var app = express();
-    app.set('port', process.env.PORT||80);
+    app.set('port', process.env.PORT||8080);
     // app.set('port', 8000);
 
     app.use(express.static('./public'));
