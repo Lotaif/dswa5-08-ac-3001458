@@ -10,7 +10,4 @@ angular.module('ifsp').controller('ContatosController',
             { "_id": 2, "nome": "Matheus Gomes", "email": "vsgmatheus@gmail.com" },
             { "_id": 3, "nome": "Jonathan Dias", "email": "jonatha.ona@gmail.com" }
         ];
-
-        $scope.filtro = '';
-
-    });
+});

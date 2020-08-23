@@ -1,16 +1,16 @@
 <div class="jumbotron">
     <img style="float: left; width: 150px" src="ifsp-alto-tiete.jpg" alt="IFSP">
     <h1 class="text-center">Bem-vindo ao IFSP</h1>
-    <h2 class="text-center">Lista de Contatos</h1>
+    <h2 class="text-center">Lista de Cursos</h1>
 </div>
 <nav class="navbar navbar-expand navbar-dark bg-dark ng-scope">
     <div class="collapse navbar-collapse" id="navbarsExample02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#/contatos">Contatos <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/cursos">Cursos</a>
+          <a class="nav-link" href="#/contatos">Contatos</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#/cursos">Cursos <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-md-0 ng-pristine ng-valid">
@@ -20,17 +20,17 @@
 </nav>
 <br class="ng-scope">
 <button class="btn btn-primary" ng-click="incrementa()">Novo</button>
-<p>Contatos Cadastrados: {{total}}</p>
+<p>Cursos Cadastrados: {{total}}</p>
 <div class="table-responsive">
     <table class="table table-hover">
         <tr>
-            <th>NOME</th>
-            <th>E-MAIL</th>
+            <th>CURSO</th>
+            <th>COORDENADOR</th>
             <th class='text-center'>Ação</th>
         </tr>
-        <tr ng-repeat="contato in contatos | filter: search">
-            <td><a>{{contato.nome}}</a></td>
-            <td>{{contato.email}}</td>
+        <tr ng-repeat="curso in cursos | filter: search">
+            <td><a>{{curso.curso}}</a></td>
+            <td>{{curso.coordenador}}</td>
             <td class='text-center'><button class="btn btn-warning">Remover</button></td>
         </tr>
     </table>

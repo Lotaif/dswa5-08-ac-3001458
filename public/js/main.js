@@ -1,7 +1,12 @@
-angular.module('ifsp', ['ngRoute']).config(function($routeProvider) {
+var app = angular.module('ifsp', ['ngRoute']);
+
+app.config(['$routeProvider', '$locationProvider', function AppConfig($routeProvider, $locationProvider) {
+
+    $locationProvider.hashPrefix('');
+
     $routeProvider.when('/contatos', {
         templateUrl: 'partials/contatos.html',
-        controller: 'ContatosController'
+        controller: 'ContatosController',
     });
 
     $routeProvider.when('/contato/:contatoId', {
@@ -9,5 +14,15 @@ angular.module('ifsp', ['ngRoute']).config(function($routeProvider) {
         controller: 'ContatoController'
     });
 
+    $routeProvider.when('/cursos', {
+        templateUrl: 'partials/cursos.html',
+        controller: 'CursosController'
+    });
+
+    $routeProvider.when('/curso/:contatoId', {
+        templateUrl: 'partials/curso.html',
+        controller: 'CursoController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/contatos' });
-});
+}]);
