@@ -1,4 +1,4 @@
-var app = angular.module('ifsp', ['ngRoute']);
+var app = angular.module('ifsp', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', '$locationProvider', function AppConfig($routeProvider, $locationProvider) {
 
