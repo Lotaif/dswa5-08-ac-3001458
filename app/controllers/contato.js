@@ -1,10 +1,10 @@
 var contatos = [
-    {_id: 1, nome: 'Leonardo Lotaif', email: 'leolotaif87@gmail.com'},
-    {_id: 2, nome: 'Sheik Lopes', email: 'sheiklopes@hotmail.com'},
-    {_id: 3, nome: 'Tobias Lotaif', email: 'tobiaslotaif@uol.com.br'},
+    { _id: 1, nome: 'Leonardo Lotaif', email: 'leolotaif87@gmail.com' },
+    { _id: 2, nome: 'Sheik Lopes', email: 'sheiklopes@hotmail.com' },
+    { _id: 3, nome: 'Tobias Lotaif', email: 'tobiaslotaif@uol.com.br' }
 ]
 
-module.exports = function(){
+module.exports = function() {
     var controller = {};
     controller.listaContatos = function(req, res){
         res.json(contatos);
@@ -17,5 +17,12 @@ module.exports = function(){
         })[0];
         contato ? res.json(contato) : res.status(404).send('Contato não encontrado!');
     };
+    controller.removeContato = function(req, res) {
+        var idContato = req.params.id;
+        contatos = contatos.filter(function(contato) {
+            return contato._id != idContato;
+        });
+        res.send(204).end();
+    };
     return controller;
-}
+};

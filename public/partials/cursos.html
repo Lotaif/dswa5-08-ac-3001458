@@ -1,37 +1,46 @@
 <div class="jumbotron">
-    <img style="float: left; width: 150px" src="ifsp-alto-tiete.jpg" alt="IFSP">
-    <h1 class="text-center">Bem-vindo ao IFSP</h1>
-    <h2 class="text-center">Lista de Cursos</h1>
+  <img style="float: left; width: 150px" src="ifsp-alto-tiete.jpg" alt="IFSP">
+  <h1 class="text-center">Bem-vindo ao IFSP</h1>
+  <h2 class="text-center">Lista de cursos</h2>
 </div>
-<nav class="navbar navbar-expand navbar-dark bg-dark ng-scope">
-    <div class="collapse navbar-collapse" id="navbarsExample02">
+
+<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#/contatos">Contatos</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#/cursos">Cursos <span class="sr-only">(current)</span></a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#/contatos">Contatos</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#/cursos">Cursos <span class="sr-only">(current)</span></a>
+          </li>
       </ul>
-      <form class="form-inline my-2 my-md-0 ng-pristine ng-valid">
-        <input ng-model="search" type="search" placeholder="Digite parte do nome" class="form-control ng-pristine ng-untouched ng-valid">
+      <form class="form-inline my-2 my-md-0">
+          <input ng-model="filtro" type="search" placeholder="Digite parte do nome" class="form-control">
       </form>
-    </div>
+  </div>
 </nav>
-<br class="ng-scope">
-<button class="btn btn-primary" ng-click="incrementa()">Novo</button>
-<p>Cursos Cadastrados: {{cursos.length}}</p>
+
+<br>
+
+<button class="btn btn-primary" ng-click='incrementa()'>Novo</button>
+
+<p ng-show="cursos.length">Cursos cadastrados: {{cursos.length}}</p>
+<p class="text-info" ng-hide="cursos.length">Não há cursos cadastrados</p>
+
 <div class="table-responsive">
-    <table class="table table-hover">
-        <tr>
-            <th>CURSO</th>
-            <th>COORDENADOR</th>
-            <th class='text-center'>Ação</th>
-        </tr>
-        <tr ng-repeat="curso in cursos | filter: search">
-            <td><a>{{curso.curso}}</a></td>
-            <td>{{curso.coordenador}}</td>
-            <td class='text-center'><button class="btn btn-warning">Remover</button></td>
-        </tr>
-    </table>
+  <table class="table table-hover">
+      <tr>
+          <th>CURSO</th>
+          <th>COORDENADOR</th>
+          <th class="text-center">Ação</th>
+      </tr>
+      <tr ng-repeat="curso in cursos | filter: filtro">
+          <td><a ng-href='#/curso/{{curso._id}}'>{{curso.curso}}</a></td>
+          <td>{{curso.coordenador}}</td>
+          <td class="text-center"><button ng-click='remove(curso)' class="btn btn-warning">Remover</button></td>
+      </tr>
+  </table>
 </div>

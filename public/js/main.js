@@ -19,7 +19,7 @@ app.config(['$routeProvider', '$locationProvider', function AppConfig($routeProv
         controller: 'CursosController'
     });
 
-    $routeProvider.when('/curso/:contatoId', {
+    $routeProvider.when('/curso/:cursoId', {
         templateUrl: 'partials/curso.html',
         controller: 'CursoController'
     });
