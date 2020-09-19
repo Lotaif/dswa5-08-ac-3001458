@@ -24,5 +24,15 @@ app.config(['$routeProvider', '$locationProvider', function AppConfig($routeProv
         controller: 'CursoController'
     });
 
+    $routeProvider.when('/contato', {
+        templateUrl: 'partials/contato.html',
+        controller: 'ContatoController'
+    });
+
+    $routeProvider.when('/curso', {
+        templateUrl: 'partials/curso.html',
+        controller: 'CursoController'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/contatos' });
 }]);
